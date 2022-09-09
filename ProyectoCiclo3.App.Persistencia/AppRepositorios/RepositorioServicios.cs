@@ -28,5 +28,17 @@ namespace ProyectoCiclo3.App.Persistencia.AppRepositorios
         public Servicio GetWithId(int id){
             return servicios.SingleOrDefault(e => e.id == id);
         }
+        public Servicio Update(Servicio newServicio){
+            var servicio= servicios.SingleOrDefault(e => e.id == newServicio.id);
+            if(servicio!= null){
+                servicio.origen = newServicio.origen;
+                servicio.destino = newServicio.destino;
+                servicio.fecha = newServicio.fecha;
+                servicio.hora = newServicio.hora;
+                servicio.encomienda = newServicio.encomienda;
+            }
+            
+        return servicio;
+        }
     }
 }
